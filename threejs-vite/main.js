@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -10,34 +11,34 @@ const camera = new THREE.PerspectiveCamera(
 
 camera.position.z = 5;
 
-const cubegeo  = new THREE.BoxGeometry(2,2,2);
-const cubemat = new THREE.MeshBasicMaterial({color : "red"});
-const cube = new THREE.Mesh(cubegeo, cubemat);
+const light = new THREE.DirectionalLight("white", 3);
+light.position.set(2,2,2);
+scene.add(light)
 
-const spheregeo  = new THREE.SphereGeometry(1, 32, 16);
-const spheremat = new THREE.MeshBasicMaterial({color : "blue"});
-const sphere = new THREE.Mesh(spheregeo, spheremat);
+// const helper = new THREE.DirectionalLightHelper( light, 5 );
+// scene.add( helper )
+
+let textureLoader = new THREE.TextureLoader();
+let newtex = textureLoader.load("./public/earth-texture.jpeg")
+console.log(newtex);
 
 
-const group = new THREE.Group()
+const geometry  = new THREE.SphereGeometry(1,20,20);
+const mat = new THREE.MeshPhysicalMaterial({map: newtex});
+const planet = new THREE.Mesh(geometry, mat);
 
-group.add(cube);
-group.add(sphere)
-
-scene.add(group)
-
-cube.position.x = -3; // Move the cube to the left
-sphere.position.x = 3; // Move the sphere to the right
+scene.add(planet)
 
 const canvas = document.querySelector("canvas");
 const renderer = new THREE.WebGLRenderer({canvas})
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 renderer.render(scene, camera)
-
+const controls = new OrbitControls( camera, canvas  );
 function animation(){
   window.requestAnimationFrame(animation)
-  group.rotation.z += 0.01;
+
+  controls.update();
   renderer.render(scene, camera)
 }
 animation()
