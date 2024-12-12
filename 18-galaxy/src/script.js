@@ -67,15 +67,15 @@ const generateGalaxy = () => {
       (Math.random() < 0.5 ? 1 : -1);
 
     position[i3] = Math.cos(branchAngle + spinAngle) * radius + randomX;
-    position[i3 + 1] = 0 + randomY;
+    position[i3 + 1] = randomY;
     position[i3 + 2] = Math.sin(branchAngle + spinAngle) * radius + randomZ;
 
     const mixedColor = colorInside.clone();
-    mixedColor.lerp(colorOutside, parameters.radius);
+    mixedColor.lerp(colorOutside, radius / parameters.radius);
 
     colors[i3] = mixedColor.r;
     colors[i3 + 1] = mixedColor.g;
-    colors[i3 + 1] = mixedColor.b;
+    colors[i3 + 2] = mixedColor.b;
   }
 
   geometry.setAttribute("position", new THREE.BufferAttribute(position, 3));
