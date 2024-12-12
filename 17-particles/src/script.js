@@ -38,7 +38,7 @@ particlesGeometry.setAttribute(
 particlesGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
 // Material
-const particleTexture = textureLoader.load("./textures/particles/8.png");
+const particleTexture = textureLoader.load("./textures/particles/8  .png");
 const particlesMaterial = new THREE.PointsMaterial();
 particlesMaterial.size = 0.2;
 particlesMaterial.sizeAttenuation = true;
