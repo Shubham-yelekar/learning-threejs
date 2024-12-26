@@ -37,7 +37,8 @@ const world = new CANNON.World();
 world.gravity.set(0, -9.82, 0);
 
 // Material
-const defaultMaterial = new CANNON.Material("default");
+const concreteMaterial = new CANNON.Material("default");
+const plasticMaterial = new CANNON.Material("plastic");
 
 const concretePlasticContactMaterial = new CANNON.ContactMaterial(
   concreteMaterial,
