@@ -1,74 +1,135 @@
-<div align="center">
-# Three.js Journey
+# 🍩 ThreeJs Journey
 
-</div>
+Three.js is a popular open-source JavaScript library used for creating 3D graphics on the web. It provides a range of features for creating 3D scenes, including 3D object creation, lighting, camera control, and more. Three.js is compatible with most modern browsers and can be used with other web technologies such as HTML, CSS, and JavaScript. It has a large and active community of developers who contribute to its development and share their work and knowledge. Three.js is commonly used for creating games, visualizations, and interactive experiences on the web. It requires a solid understanding of both JavaScript and 3D graphics concepts and offers a range of resources for learning and getting started.
 
-<!-----------------------------------{ Links }---------------------------------->
+To get started with Three.js, you will need to have a good understanding of JavaScript and some basic 3D graphics concepts. You can start by exploring the Three.js documentation and examples, which provide a range of resources for getting started and learning the basics. From there, you can gradually build your knowledge and skills, experimenting with different features and techniques to create engaging and interactive 3D experiences on the web.
 
-[demo]: https://imported-modules-threejs-journey.vercel.app
-[course]: https://threejs-journey.com
+Overall, learning Three.js is a valuable and exciting journey, as it allows you to create immersive and engaging experiences on the web, from games to visualizations and more.
+# Demo
 
-</div>
+## My first three js project 🚀
 
-- ### 01 - Basics
+- https://webgl-3d-text-silk-phi.vercel.app/ 
+  
+![hellothreejs](https://github.com/Singh233/Three.Js-Journey/assets/37498067/415b8691-c23b-409e-ac03-d06a708addc9)
 
-  - [**03 - Basic Scene**][3c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][3]**
-  - [**05 - Transform Objects**][5c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][5]**
-  - [**06 - Animations**][6c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][6]**
-  - [**07 - Camera**][7c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][7]**
-  - [**08 - Fullscreen and Resizing**][8c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][8]**
-  - [**09 - Geometries**][9c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][9]**
-  - [**10 - Debug UI**][10c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][10]**
-  - [**11 - Textures**][11c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][11]**
-  - [**12 - Materials**][12c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][12]**
-  - [**13 - 3D Text**][13c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][13]**
+## Playing with lights 💡
 
-- ### 02 - Classic Techniques
+- https://playing-with-lights.vercel.app/ 
+  
+![playing_with_lights](https://github.com/Singh233/Three.Js-Journey/assets/37498067/b83b6265-4605-4ee8-90b4-79084f1e7ee8)
 
-  - [**15 - Lights**][15c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][15]**
-  - [**16 - Shadows**][16c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][16]**
-  - [**17 - Haunted House**][17c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][17]**
-  - [**18 - Particles**][18c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][18]**
-  - [**19 - Galaxy Generator**][19c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][19]**
-  - [**20 - Raycaster**][20c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][20]**
-  - [**21 - Scroll Based Animations**][21c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][21]**
+## Galaxy Generator 🌌
 
-- ### 03 - Advanced Techniques
+- https://19-galaxy-generator-sage.vercel.app/
+  
+![galaxy](https://github.com/Singh233/Three.Js-Journey/assets/37498067/f54429c5-eca3-47c1-aac0-abea37b653de)
 
-  - [**22 - Physics**][22c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][22]**
-  - [**23 - Imported Modules**][23c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][23]**
-  - [**24 - Custom model w/ Blender**][24c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][24]**
-  - [**25 - Realistic Render**][25c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][25]**
-  - [**26 - Code Structuring for Bigger Projects**][26c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][26]**
+## My Portfolio 💪
 
-- ### 04 - Shaders
+- https://scroll-based-animation-mu.vercel.app/ 
+  
+![portfolio](https://github.com/Singh233/Three.Js-Journey/assets/37498067/a4ae93b4-6f72-4c02-871a-b04d6d51b753)
 
-  - [**27 - Shaders**][27c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][27]**
-  - [**28 - Shader Patterns**][28c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][28]**
-  - [**29 - Raging Sea**][29c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][29]**
-  - [**30 - Animated Galaxy**][30c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][30]**
-  - [**31 - Modified Materials**][31c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][31]**
+## Realistic Render 😳
 
-- ### 05 - Extra
+- https://realistic-render-ten.vercel.app/
 
-  - [**32 - Post Processing**][32c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][32]**
-  - [**33 - Performance Tips**][33c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][33]**
-  - [**34 - Intro & Loading Progress**][34c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][34]**
-  - [**35 - Mixing HTML & WebGL**][35c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][35]**
+![flight_helmet](https://github.com/Singh233/Three.Js-Journey/assets/37498067/bdd67b43-52ef-4049-bf3a-55007901b794)
 
-- ### 07 - React Three Fiber
-  - [**42 - First R3F Application**][42c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][42]**
-  - [**43 - Drei**][43c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][43]**
-  - [**44 - Debug**][44c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][44]**
-  - [**45 - Environment & Staging**][45c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][45]**
-  - [**46 - Load Models**][46c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][46]**
-  - [**47 - 3D Text**][47c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][47]**
-  - [**49 - Mouse Events**][49c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][49]**
-  - [**50 - Post Processing**][50c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][50]**
-  - [**52 - Physics**][52c] &nbsp; **[<kbd>**_Live Demo_**</kbd>][52]**
 
-<div align="center">
+## Foxy (Add #debug in URL and reload) 🦊
 
-[logo]: assets/images/threejs.png
-[course]: https://threejs-journey.com
-[bruno]: https://bruno-simon.com
+- https://26-code-structuring-for-bigger-projects-livid.vercel.app/
+  
+![fox](https://github.com/Singh233/Three.Js-Journey/assets/37498067/fb198d99-c804-4266-940e-8194df596adc)
+
+## Portal Scene 🌌
+
+- https://portal-scene-sanambir123-gmailcom.vercel.app/
+  
+![portal_scene](https://github.com/Singh233/ThreeJs-Journey/assets/37498067/e28e3ede-42da-4e71-91be-b495f1ed6b40)
+
+## Post Processing ⚙️
+
+- https://33-post-processing-zeta.vercel.app/
+  
+![post_processing](https://github.com/Singh233/ThreeJs-Journey/assets/37498067/fa1c0135-0286-4dd9-a162-36ca66e12f07)
+
+## React Three Fiber Intro ⚛️
+
+- https://44-r3f-drei.vercel.app/
+
+![drei](https://github.com/Singh233/ThreeJs-Journey/assets/37498067/bd67200c-4df6-4a35-a458-446f4c43cc4f)
+
+## React Three Fiber 3D Text ⚛️
+
+- https://48-3d-text-with-r3f.vercel.app/
+
+![3dtext](https://github.com/Singh233/ThreeJs-Journey/assets/37498067/04cdf4a1-7152-41c9-89c3-1d7cd570040b)
+
+## React Three Fiber Portal Scene 🌌
+
+- https://49-portal-scene-with-r3f-bay.vercel.app/
+  
+![r3fportal](https://github.com/Singh233/ThreeJs-Journey/assets/37498067/df3b44fa-d85f-46ad-b57c-1fe62644aa07)
+
+
+## Run Project Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Singh233/Three.Js-Journey.git
+```
+
+Go to the project directory
+
+```bash
+  cd Three.Js-Journey
+```
+
+Open any lesson (Starting from 4)
+
+```bash
+  cd 04-local-server
+```
+
+Install the packages
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+
+
+
+
+
+
+## 🎨 Beautiful Course by - Bruno Simon
+
+ - [ThreeJs Journey](https://threejs-journey.com/)
+
+
+
+## 🚀 About Me
+I'm an Aspiring full stack developer...
+Love to create, design and build cool projects 😎 and have passion for creating innovative solutions to complex problems using cutting-edge technologies. I have a strong understanding of both front-end and back-end development, and constantly seeking to improve my skills in these areas.
+
+
+## Feedback
+
+If you have any feedback, please reach out to me at sanambir123@gmail.com
+
+
+## Author
+
+- [@SanambirSingh](https://github.com/Singh233) 🤗
