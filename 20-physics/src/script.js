@@ -21,12 +21,12 @@ const scene = new THREE.Scene();
 const hitSound = new Audio("/sounds/hit.mp3");
 const playhitSound = (collision) => {
   const impactStrength = collision.contact.getImpactVelocityAlongNormal();
-  if(impactStrength > 1.5){
+  if (impactStrength > 1.5) {
     hitSound.volume = Math.random();
     hitSound.currentTime = 0;
-    hitSound.play()
-  };
-}
+    hitSound.play();
+  }
+};
 
 /**
  * Textures
@@ -160,7 +160,6 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-
 // UTILS
 const objectsToUpdate = [];
 const sphereGeometry = new THREE.SphereGeometry(1, 20, 20);
@@ -168,7 +167,7 @@ const sphereMaterial = new THREE.MeshStandardMaterial({
   metalness: 0.3,
   roughness: 0.4,
   envMap: environmentMapTexture,
-})
+});
 const createSphere = (radius, postion) => {
   const mesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
   mesh.scale.set(radius, radius, radius);
@@ -184,85 +183,74 @@ const createSphere = (radius, postion) => {
     material: defaultMaterial,
   });
   body.position.copy(postion);
-  body.addEventListener('collide', playhitSound);
+  body.addEventListener("collide", playhitSound);
   world.addBody(body);
 
   objectsToUpdate.push({ mesh, body });
 };
 
-const boxGeometry = new THREE.BoxGeometry(1, 1, 1)
+const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 const boxMaterial = new THREE.MeshStandardMaterial({
-    metalness: 0.3,
-    roughness: 0.4,
-    envMap: environmentMapTexture,
-    envMapIntensity: 0.5
-})
-const createBox = (width, height, depth, position) =>
-{
-    // Three.js mesh
-    const mesh = new THREE.Mesh(boxGeometry, boxMaterial)
-    mesh.scale.set(width, height, depth)
-    mesh.castShadow = true
-    mesh.position.copy(position)
-    scene.add(mesh)
+  metalness: 0.3,
+  roughness: 0.4,
+  envMap: environmentMapTexture,
+  envMapIntensity: 0.5,
+});
+const createBox = (width, height, depth, position) => {
+  // Three.js mesh
+  const mesh = new THREE.Mesh(boxGeometry, boxMaterial);
+  mesh.scale.set(width, height, depth);
+  mesh.castShadow = true;
+  mesh.position.copy(position);
+  scene.add(mesh);
 
-    // Cannon.js body
-    const shape = new CANNON.Box(new CANNON.Vec3(width * 0.5, height * 0.5, depth * 0.5))
+  // Cannon.js body
+  const shape = new CANNON.Box(
+    new CANNON.Vec3(width * 0.5, height * 0.5, depth * 0.5)
+  );
 
-    const body = new CANNON.Body({
-        mass: 1,
-        position: new CANNON.Vec3(0, 3, 0),
-        shape: shape,
-        material: defaultMaterial
-    })
-    body.position.copy(position)
-    body.addEventListener('collide', playhitSound);
-    world.addBody(body)
+  const body = new CANNON.Body({
+    mass: 1,
+    position: new CANNON.Vec3(0, 3, 0),
+    shape: shape,
+    material: defaultMaterial,
+  });
+  body.position.copy(position);
+  body.addEventListener("collide", playhitSound);
+  world.addBody(body);
 
-    // Save in objects
-    objectsToUpdate.push({ mesh, body })
-}
+  // Save in objects
+  objectsToUpdate.push({ mesh, body });
+};
 // createBox(1, 1.5, 2, { x: 3, y: 3, z: 0 })
 
-debugObject.createBox = () =>
-  {
-      createBox(
-          Math.random(),
-          Math.random(),
-          Math.random(),
-          {
-              x: (Math.random() - 0.5) * 3,
-              y: 3,
-              z: (Math.random() - 0.5) * 3
-          }
-      )
+debugObject.createBox = () => {
+  createBox(Math.random(), Math.random(), Math.random(), {
+    x: (Math.random() - 0.5) * 3,
+    y: 3,
+    z: (Math.random() - 0.5) * 3,
+  });
+};
+gui.add(debugObject, "createBox");
+
+debugObject.createSphere = () => {
+  createSphere(Math.random() * 0.5, {
+    x: (Math.random() - 0.5) * 3,
+    y: 5,
+    z: (Math.random() - 0.5) * 3,
+  });
+};
+gui.add(debugObject, "createSphere");
+
+debugObject.reset = () => {
+  for (const object of objectsToUpdate) {
+    object.body.removeEventListener("collide", playhitSound);
+    world.removeBody(object.body);
+    scene.remove(object.mesh);
   }
-  gui.add(debugObject, 'createBox')
-
-  debugObject.createSphere = () =>
-    {
-        createSphere(
-            Math.random()*0.5,
-            {
-                x: (Math.random() - 0.5) * 3,
-                y: 5,
-                z: (Math.random() - 0.5) * 3
-            }
-        )
-    }
-    gui.add(debugObject, 'createSphere')
-
-debugObject.reset = () =>
-    {
-        for(const object of objectsToUpdate)
-        {
-            object.body.removeEventListener('collide', playhitSound)
-            world.removeBody(object.body)
-            scene.remove(object.mesh)
-        }
-        objectsToUpdate.splice(0, objectsToUpdate.length)
-    }
-    gui.add(debugObject, 'reset')
+  objectsToUpdate.splice(0, objectsToUpdate.length);
+};
+gui.add(debugObject, "reset");
 /**
  * Animate
  */
