@@ -6,7 +6,7 @@
 
 ### 03 - First Three.js Project
 
-### [live demo ⇗](https://03-first-threejs-project.netlify.app/){:target="_blank"}
+### [live demo ⇗](https://03-first-threejs-project.netlify.app/)
 
 ![image](/assets/03-first-threejs-project.jpeg)
 ---
