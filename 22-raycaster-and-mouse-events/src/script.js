@@ -91,6 +91,16 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 /**
+ * Mouse
+ */
+const mouse = new THREE.Vector2();
+
+window.addEventListener("mousemove", (event) => {
+  mouse.x = (event.clientX / sizes.width) * 2 - 1;
+  mouse.y = -(event.clientY / sizes.height) * 2 + 1;
+});
+
+/**
  * Animate
  */
 const clock = new THREE.Clock();
@@ -103,20 +113,17 @@ const tick = () => {
   object3.position.y = Math.sin(elapsedTime * 1.4) * 1.5;
 
   // Cast a ray
-  //   const rayOrigin = new THREE.Vector3(-3, 0, 0);
-  //   const rayDirection = new THREE.Vector3(1, 0, 0);
-  //   rayDirection.normalize();
-  //   raycaster.set(rayOrigin, rayDirection);
-  //   const objectsToTest = [object1, object2, object3];
-  //   const intersects = raycaster.intersectObjects(objectsToTest);
+  raycaster.setFromCamera(mouse, camera);
+  const objectsToTest = [object1, object2, object3];
+  const intersects = raycaster.intersectObjects(objectsToTest);
 
-  //   for (const object of objectsToTest) {
-  //     object.material.color.set("#ff0000");
-  //   }
+  for (const object of objectsToTest) {
+    object.material.color.set("#ff0000");
+  }
 
-  //   for (const intersect of intersects) {
-  //     intersect.object.material.color.set("#0000ff");
-  //   }
+  for (const intersect of intersects) {
+    intersect.object.material.color.set("#0000ff");
+  }
 
   // Update controls
   controls.update();
