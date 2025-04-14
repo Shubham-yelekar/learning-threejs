@@ -1,7 +1,13 @@
 import * as THREE from "three";
+import sources from "./sources.js";
+
 import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time";
 import Camera from "./Camera";
+import Renderer from "./Renderer";
+import World from "./World/World.js";
+import Resources from "./Utils/Resources.js";
+import Debug from "./Utils/Dubug.js";
 
 let instance = null;
 
@@ -19,10 +25,14 @@ export default class Experience {
     this.canvas = canvas;
 
     //Setup
+    this.debug = new Debug();
     this.sizes = new Sizes();
     this.time = new Time();
     this.scene = new THREE.Scene();
+    this.resources = new Resources(sources);
     this.camera = new Camera();
+    this.renderer = new Renderer();
+    this.world = new World();
 
     this.sizes.on("resize", () => {
       this.resize();
@@ -35,8 +45,37 @@ export default class Experience {
   }
 
   resize() {
-    console.log("resize");
+    this.camera.resize();
+    this.renderer.resize();
   }
 
-  update() {}
+  update() {
+    this.camera.update();
+    this.world.update();
+    this.renderer.update();
+  }
+
+  destroy() {
+    this.sizes.off("resize");
+    this.time.off("tick");
+
+    this.scene.traverse((child) => {
+      // Test if it's a mesh
+      if (child instanceof THREE.Mesh) {
+        child.geometry.dispose();
+
+        // Loop through the material properties
+        for (const key in child.material) {
+          const value = child.material[key];
+
+          // Test if there is a dispose function
+          if (value && typeof value.dispose === "function") {
+            value.dispose();
+          }
+        }
+      }
+
+      this.camera.controls.dispose();
+    });
+  }
 }
