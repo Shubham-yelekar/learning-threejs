@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code structuring</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fox Animation</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="info"><button onclick="addDebug()">Debug Menu</button></div>
     <canvas class="webgl"></canvas>
     <script type="module" src="./script.js"></script>
-</body>
+    <script>
+      if (window.location.hash) {
+        document.querySelector(".info").remove();
+      }
+      function addDebug() {
+        if (!window.location.hash.includes("debug")) {
+          window.location.hash = "debug";
+          // Reload only if the hash wasn't already present
+          window.location.reload();
+        }
+      }
+    </script>
+  </body>
 </html>

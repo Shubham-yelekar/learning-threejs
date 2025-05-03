@@ -14,12 +14,12 @@ export default [
   {
     name: "grassColorTexture",
     type: "texture",
-    path: "textures/dirt/color.jpg",
+    path: "textures/dirt/snow_02_diff_1k.jpg",
   },
   {
     name: "grassNormalTexture",
     type: "texture",
-    path: "textures/dirt/normal.jpg",
+    path: "textures/dirt/snow_02_nor_gl_1k.jpg",
   },
   {
     name: "foxModel",

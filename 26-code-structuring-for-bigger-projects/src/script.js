@@ -1,12 +1,11 @@
 import Experience from "./Experience.js/Experience";
 
-const experience = new Experience(document.querySelector('canvas.webgl'))
+const experience = new Experience(document.querySelector("canvas.webgl"));
 
 // import * as THREE from 'three'
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 // import GUI from 'lil-gui'
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-
 
 // /**
 //  * Loaders
