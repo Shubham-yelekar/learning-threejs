@@ -1,8 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
-import testVertexShader from "./Shaders/Test/vertex.glsl";
-import testFragmentShader from "./Shaders/Test/fragment.glsl";
+import testVertexShader from "./Shaders/Test/vertex-2.glsl";
+import testFragmentShader from "./Shaders/Test/fragment-2.glsl";
 /**
  * Base
  */
@@ -39,34 +39,46 @@ for (let i = 0; i < count; i++) {
 geometry.setAttribute("aRandom", new THREE.BufferAttribute(random, 1));
 
 // Material
+// const material = new THREE.ShaderMaterial({
+//   vertexShader: testVertexShader,
+//   fragmentShader: testFragmentShader,
+//   transparent: true,
+//   uniforms: {
+//     uFrequency: { value: new THREE.Vector2(10, 5) },
+//     uTime: { value: 0 },
+//     uColor: { value: new THREE.Color("orange") },
+//     uTexture: { value: flagTexture },
+//   },
+// });
 const material = new THREE.ShaderMaterial({
   vertexShader: testVertexShader,
   fragmentShader: testFragmentShader,
-  transparent: true,
-  uniforms: {
-    uFrequency: { value: new THREE.Vector2(10, 5) },
-    uTime: { value: 0 },
-    uColor: { value: new THREE.Color("orange") },
-    uTexture: { value: flagTexture },
-  },
+  side: THREE.DoubleSide,
+  // transparent: true,
+  // uniforms: {
+  //   uFrequency: { value: new THREE.Vector2(10, 5) },
+  //   uTime: { value: 0 },
+  //   uColor: { value: new THREE.Color("orange") },
+  //   uTexture: { value: flagTexture },
+  // },
 });
 
-gui
-  .add(material.uniforms.uFrequency.value, "x")
-  .min(0)
-  .max(20)
-  .step(0.01)
-  .name("frequencyX");
-gui
-  .add(material.uniforms.uFrequency.value, "y")
-  .min(0)
-  .max(20)
-  .step(0.01)
-  .name("frequencyY");
+// gui
+//   .add(material.uniforms.uFrequency.value, "x")
+//   .min(0)
+//   .max(20)
+//   .step(0.01)
+//   .name("frequencyX");
+// gui
+//   .add(material.uniforms.uFrequency.value, "y")
+//   .min(0)
+//   .max(20)
+//   .step(0.01)
+//   .name("frequencyY");
 
 // Mesh
 const mesh = new THREE.Mesh(geometry, material);
-mesh.scale.y = 2 / 3;
+mesh.scale.y = 1;
 scene.add(mesh);
 
 /**
@@ -101,7 +113,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(0.25, -0.25, 1);
+camera.position.set(0, 0.0, 1);
 scene.add(camera);
 
 // Controls
@@ -125,7 +137,7 @@ const clock = new THREE.Clock();
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
-  material.uniforms.uTime.value = elapsedTime;
+  // material.uniforms.uTime.value = elapsedTime;
 
   // Update controls
   controls.update();
