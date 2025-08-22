@@ -28,15 +28,15 @@ const flagTexture = textureLoader.load("/textures/flag-india-2.jpg");
 // Geometry
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
 
-const count = geometry.attributes.position.count;
+// const count = geometry.attributes.position.count;
 
-const random = new Float32Array(count);
+// const random = new Float32Array(count);
 
-for (let i = 0; i < count; i++) {
-  random[i] = Math.random();
-}
+// for (let i = 0; i < count; i++) {
+//   random[i] = Math.random();
+// }
 
-geometry.setAttribute("aRandom", new THREE.BufferAttribute(random, 1));
+// geometry.setAttribute("aRandom", new THREE.BufferAttribute(random, 1));
 
 // Material
 // const material = new THREE.ShaderMaterial({
