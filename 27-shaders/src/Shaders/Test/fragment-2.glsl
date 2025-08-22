@@ -173,7 +173,7 @@ void main() {
   //   float strength = lightX * lightY;
   // gl_FragColor = vec4(strength, strength, strength, 1.0);
 
-    // // Pattern 30 - Star Rotate
+    // // Pattern 31 - Star Rotate
   //   vec2 rotateUv  = rotate(vUv, 0.2, vec2(0.5,0.5));
   //   vec2 lightUvx = vec2(
   //     rotateUv.x * 0.1 + 0.45,
@@ -188,4 +188,5 @@ void main() {
   //   float strength = lightX * lightY;
   // gl_FragColor = vec4(strength, strength, strength, 1.0);
 
+    // // Pattern 32 - Star Rotate
 } 
