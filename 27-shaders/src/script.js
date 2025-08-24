@@ -55,12 +55,12 @@ const material = new THREE.ShaderMaterial({
   fragmentShader: testFragmentShader,
   side: THREE.DoubleSide,
   // transparent: true,
-  // uniforms: {
-  //   uFrequency: { value: new THREE.Vector2(10, 5) },
-  //   uTime: { value: 0 },
-  //   uColor: { value: new THREE.Color("orange") },
-  //   uTexture: { value: flagTexture },
-  // },
+  uniforms: {
+    // uFrequency: { value: new THREE.Vector2(10, 5) },
+    utime: { value: 0 },
+    // uColor: { value: new THREE.Color("orange") },
+    // uTexture: { value: flagTexture },
+  },
 });
 
 // gui
@@ -138,6 +138,7 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // material.uniforms.uTime.value = elapsedTime;
+  material.uniforms.utime.value += 0.01;
 
   // Update controls
   controls.update();
