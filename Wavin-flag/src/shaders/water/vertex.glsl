@@ -8,12 +8,9 @@ uniform float uSmallWavesFrequency;
 uniform float uSmallWavesSpeed;
 uniform float uSmallIterations;
 
-varying vec2 vUv;
 varying float vElevation;
 varying vec3 vNormal;
 varying vec3 vPosition;
-
-
 #include ../includes/perlineClassic3D.glsl;
 
 float waveElevation(vec3 position){
@@ -52,6 +49,4 @@ void main()
     vElevation = elevation;
     vNormal = computeNormal;
     vPosition = modelPosition.xyz;
-
-     vUv = uv;
 }
