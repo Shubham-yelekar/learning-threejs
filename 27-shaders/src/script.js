@@ -1,8 +1,8 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import GUI from "lil-gui";
-import testVertexShader from "./Shaders/Test/vertex-2.glsl";
-import testFragmentShader from "./Shaders/Test/fragment-2.glsl";
+import testVertexShader from "./Shaders/Test/vertex.glsl";
+import testFragmentShader from "./Shaders/Test/fragment.glsl";
 /**
  * Base
  */
@@ -26,7 +26,7 @@ const flagTexture = textureLoader.load("/textures/flag-india-2.jpg");
  * Test mesh
  */
 // Geometry
-const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
+const geometry = new THREE.PlaneGeometry(1.5, 1, 32, 32);
 
 // const count = geometry.attributes.position.count;
 
@@ -39,29 +39,29 @@ const geometry = new THREE.PlaneGeometry(1, 1, 32, 32);
 // geometry.setAttribute("aRandom", new THREE.BufferAttribute(random, 1));
 
 // Material
+const material = new THREE.ShaderMaterial({
+  vertexShader: testVertexShader,
+  fragmentShader: testFragmentShader,
+  transparent: true,
+  uniforms: {
+    uFrequency: { value: new THREE.Vector2(10, 5) },
+    uTime: { value: 0 },
+    uColor: { value: new THREE.Color("orange") },
+    uTexture: { value: flagTexture },
+  },
+});
 // const material = new THREE.ShaderMaterial({
 //   vertexShader: testVertexShader,
 //   fragmentShader: testFragmentShader,
-//   transparent: true,
+//   side: THREE.DoubleSide,
+//   // transparent: true,
 //   uniforms: {
 //     uFrequency: { value: new THREE.Vector2(10, 5) },
-//     uTime: { value: 0 },
+//     utime: { value: 0 },
 //     uColor: { value: new THREE.Color("orange") },
 //     uTexture: { value: flagTexture },
 //   },
 // });
-const material = new THREE.ShaderMaterial({
-  vertexShader: testVertexShader,
-  fragmentShader: testFragmentShader,
-  side: THREE.DoubleSide,
-  // transparent: true,
-  uniforms: {
-    // uFrequency: { value: new THREE.Vector2(10, 5) },
-    utime: { value: 0 },
-    // uColor: { value: new THREE.Color("orange") },
-    // uTexture: { value: flagTexture },
-  },
-});
 
 // gui
 //   .add(material.uniforms.uFrequency.value, "x")
@@ -138,7 +138,7 @@ const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // material.uniforms.uTime.value = elapsedTime;
-  material.uniforms.utime.value += 0.01;
+  material.uniforms.uTime.value += 0.01;
 
   // Update controls
   controls.update();
